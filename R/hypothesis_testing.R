@@ -22,7 +22,6 @@
 #'
 #' @param counts A matrix or data frame with alleles for column names
 #' @return A matrix of randomized counts
-#' @export
 #' @seealso \code{\link{sample_coefficients}}
 randomize_counts <- function(counts) {
   t(
@@ -42,7 +41,6 @@ randomize_counts <- function(counts) {
 #' @param n An integer giving number of coefficient samples to generate
 #' @param cores An integer giving the number of cpu cores to use
 #' @return A matrix of coefficients as drawn from the null distribution
-#' @export
 #' @seealso \code{\link{estimate_standard_errors}}
 sample_coefficients <- function(
   counts,
