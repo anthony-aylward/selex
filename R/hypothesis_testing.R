@@ -76,8 +76,8 @@ sample_coefficients <- function(
 #' @param n An integer giving number of coefficient samples to generate
 #' @param cores An integer giving the number of cpu cores to use
 #' @return A numeric vector containing the estimated SE's
-#' @seealso \code{\link{estimate_z_scores}}
 #' @export
+#' @seealso \code{\link{estimate_z_scores}}
 selex_standard_errors <- function(
   counts,
   weights = default_weights,
@@ -97,8 +97,8 @@ selex_standard_errors <- function(
 #' @param n An integer giving number of coefficient samples to generate
 #' @param cores An integer giving the number of cpu cores to use
 #' @return A numeric vector containing the estimated Z-scores
-#' @seealso \code{\link{estimate_pvals}}
 #' @export
+#' @seealso \code{\link{estimate_pvals}}
 selex_z_scores <- function(
   fit,
   estimated_se = NULL,
@@ -124,6 +124,7 @@ selex_z_scores <- function(
 #'
 #' @param z A Z-score
 #' @return A p-value
+#' @export
 #' @seealso \code{\link{estimate_pvals}}
 two_tailed_z_test <- function(z) {
   (1 - pnorm(abs(z))) * 2
@@ -137,8 +138,8 @@ two_tailed_z_test <- function(z) {
 #' @param estimated_se A numeric vector giving standard errors to use
 #' @param n An integer giving number of coefficient samples to generate
 #' @param cores An integer giving the number of cpu cores to use
-#' @return A numeric vector containing the estimated p-values
 #' @export
+#' @return A numeric vector containing the estimated p-values
 selex_pvals <- function(
   fit,
   estimated_se = NULL,
