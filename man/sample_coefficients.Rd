@@ -23,5 +23,5 @@ A matrix of coefficients as drawn from the null distribution
 Randomizes the input counts and generates null coefficients
 }
 \seealso{
-\code{\link{estimate_standard_errors}}
+\code{\link{selex_standard_errors}}
 }

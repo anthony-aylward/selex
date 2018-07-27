@@ -23,5 +23,5 @@ A numeric vector containing the estimated SE's
 Generates a sample of randomized SELEX data and computes "null" coefficients
 }
 \seealso{
-\code{\link{estimate_z_scores}}
+\code{\link{selex_z_scores}}
 }

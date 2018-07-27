@@ -41,7 +41,7 @@ randomize_counts <- function(counts) {
 #' @param n An integer giving number of coefficient samples to generate
 #' @param cores An integer giving the number of cpu cores to use
 #' @return A matrix of coefficients as drawn from the null distribution
-#' @seealso \code{\link{estimate_standard_errors}}
+#' @seealso \code{\link{selex_standard_errors}}
 sample_coefficients <- function(
   counts,
   weights = default_weights,
@@ -77,7 +77,7 @@ sample_coefficients <- function(
 #' @param cores An integer giving the number of cpu cores to use
 #' @return A numeric vector containing the estimated SE's
 #' @export
-#' @seealso \code{\link{estimate_z_scores}}
+#' @seealso \code{\link{selex_z_scores}}
 selex_standard_errors <- function(
   counts,
   weights = default_weights,
@@ -98,7 +98,7 @@ selex_standard_errors <- function(
 #' @param cores An integer giving the number of cpu cores to use
 #' @return A numeric vector containing the estimated Z-scores
 #' @export
-#' @seealso \code{\link{estimate_pvals}}
+#' @seealso \code{\link{selex_pvals}}
 selex_z_scores <- function(
   fit,
   estimated_se = NULL,
@@ -125,7 +125,7 @@ selex_z_scores <- function(
 #' @param z A Z-score
 #' @return A p-value
 #' @export
-#' @seealso \code{\link{estimate_pvals}}
+#' @seealso \code{\link{selex_pvals}}
 two_tailed_z_test <- function(z) {
   (1 - pnorm(abs(z))) * 2
 }

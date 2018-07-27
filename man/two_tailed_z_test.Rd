@@ -16,5 +16,5 @@ A p-value
 A two-tailed Z-test
 }
 \seealso{
-\code{\link{estimate_pvals}}
+\code{\link{selex_pvals}}
 }

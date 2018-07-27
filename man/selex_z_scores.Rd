@@ -22,5 +22,5 @@ A numeric vector containing the estimated Z-scores
 Compares multinomial logistic regression parameters to estimated SE's
 }
 \seealso{
-\code{\link{estimate_pvals}}
+\code{\link{selex_pvals}}
 }
