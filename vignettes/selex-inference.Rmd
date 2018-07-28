@@ -24,7 +24,7 @@ example_counts
 
 First, fit a multinomial logit regression model to the counts.
 ```{r}
-fit <- selex_multinom(example_counts, weights = c(8, 1, 2, 4, 8), ref = "a")
+fit <- selex_multinom(example_counts, weights = c(8, 1, 2, 4, 8), ref = "c")
 summary(fit)
 ```
 
