@@ -4,7 +4,8 @@
 \alias{selex_z_scores}
 \title{Estimate Z-scores for SELEX multinomial regression coefficients}
 \usage{
-selex_z_scores(fit, estimated_se = NULL, n = 100, cores = detectCores())
+selex_z_scores(fit, estimated_se = NULL, n = 100,
+  cores = detectCores())
 }
 \arguments{
 \item{fit}{A matrix or data frame with alleles for column names}
