@@ -9,6 +9,7 @@
 # Imports ======================================================================
 
 #' @import parallel
+#' @import R.utils
 
 
 
@@ -51,16 +52,23 @@ sample_coefficients <- function(
   n_alleles = ncol(counts)
   matrix(
     unlist(
-      mclapply(
-        lapply(1:n, function(x) randomize_counts(counts)),
-        function(c) {
-          (
-            selex_multinom(c, weights = weights)
-            [["coefficients"]]
-            [n_alleles:(2*(n_alleles-1))]
-          )
-        },
-        mc.cores = cores
+      Filter(
+        Negate(is.null),
+        mclapply(
+          lapply(1:n, function(x) randomize_counts(counts)),
+          function(c) {
+            (
+              evalWithTimeout(
+                selex_multinom(c, weights = weights),
+                timeout = 1,
+                onTimeout = "warning"
+              )
+              [["coefficients"]]
+              [n_alleles:(2*(n_alleles-1))]
+            )
+          },
+          mc.cores = cores
+        )
       )
     ),
     nrow = n_alleles - 1
