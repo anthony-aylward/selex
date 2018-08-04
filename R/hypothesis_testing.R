@@ -48,6 +48,7 @@ sample_coefficients <- function(
   weights = default_weights,
   n = 1,
   cores = detectCores()
+  timeout = 1
 ) {
   n_alleles = ncol(counts)
   matrix(
@@ -60,7 +61,7 @@ sample_coefficients <- function(
             (
               evalWithTimeout(
                 selex_multinom(c, weights = weights),
-                timeout = 1,
+                timeout = timeout,
                 onTimeout = "warning"
               )
               [["coefficients"]]
@@ -90,9 +91,16 @@ selex_standard_errors <- function(
   counts,
   weights = default_weights,
   n = 100,
-  cores = detectCores()
+  cores = detectCores(),
+  timeout = 1
 ) {
-  sample <- sample_coefficients(counts, weights = weights, n = n, cores = cores)
+  sample <- sample_coefficients(
+    counts,
+    weights = weights,
+    n = n,
+    cores = cores,
+    timeout = timeout
+  )
   sapply(1:(ncol(counts)-1), function(row) sd(sample[row,]))
 }
 
@@ -111,14 +119,16 @@ selex_z_scores <- function(
   fit,
   estimated_se = NULL,
   n = 100,
-  cores = detectCores()
+  cores = detectCores(),
+  timeout = 1
 ) {
   if (is.null(estimated_se)) {
     estimated_se <- selex_standard_errors(
       fit[["counts"]],
       weights = fit[["input.weights"]],
       n = n,
-      cores = cores
+      cores = cores,
+      timeout = timeout
     )
   }
   n_alleles = ncol(fit[["counts"]])
@@ -152,10 +162,13 @@ selex_pvals <- function(
   fit,
   estimated_se = NULL,
   n = 100,
-  cores = detectCores()
+  cores = detectCores(),
+  timeout = 1
 ) {
   p.adjust(
-    two_tailed_z_test(selex_z_scores(fit, estimated_se, n, cores = cores)),
+    two_tailed_z_test(
+      selex_z_scores(fit, estimated_se, n, cores = cores, timeout = timeout)
+    ),
     method = "bonferroni"
   )
 }
