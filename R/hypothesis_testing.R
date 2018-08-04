@@ -47,7 +47,7 @@ sample_coefficients <- function(
   counts,
   weights = default_weights,
   n = 1,
-  cores = detectCores()
+  cores = detectCores(),
   timeout = 1
 ) {
   n_alleles = ncol(counts)
