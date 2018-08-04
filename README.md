@@ -11,5 +11,5 @@ library(selex)
 ## Example
 ```
 fit <- selex_multinom(example_counts, weights = c(8, 1, 2, 4, 8), ref = "a")
-p_values <- selex_pvals(fit, ncores = 2, timeout = 1)
+p_values <- selex_pvals(fit, n = 100, ncores = 2, timeout = 1)
 ```
