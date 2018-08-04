@@ -19,7 +19,7 @@
 #' @title Randomize SELEX count data
 #'
 #' @description
-#' Produces a randomized version of read counts from a SELEXexperiment
+#' Produces a randomized version of read counts from a SELEX experiment
 #'
 #' @param counts A matrix or data frame with alleles for column names
 #' @return A matrix of randomized counts
