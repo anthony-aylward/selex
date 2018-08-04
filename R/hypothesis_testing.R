@@ -41,6 +41,8 @@ randomize_counts <- function(counts) {
 #' @param weights A numeric vector of regression weights for the 5 cycles
 #' @param n An integer giving number of coefficient samples to generate
 #' @param cores An integer giving the number of cpu cores to use
+#' @param timeout Numeric. The time limit for fitting a model during null
+#'   sampling, in seconds. (workaround for divergent edge cases)
 #' @return A matrix of coefficients as drawn from the null distribution
 #' @seealso \code{\link{selex_standard_errors}}
 sample_coefficients <- function(
@@ -84,6 +86,8 @@ sample_coefficients <- function(
 #' @param weights A numeric vector of regression weights for the 5 cycles
 #' @param n An integer giving number of coefficient samples to generate
 #' @param cores An integer giving the number of cpu cores to use
+#' @param timeout Numeric. The time limit for fitting a model during null
+#'   sampling, in seconds. (workaround for divergent edge cases)
 #' @return A numeric vector containing the estimated SE's
 #' @export
 #' @seealso \code{\link{selex_z_scores}}
@@ -112,6 +116,8 @@ selex_standard_errors <- function(
 #' @param estimated_se A numeric vector giving standard errors to use
 #' @param n An integer giving number of coefficient samples to generate
 #' @param cores An integer giving the number of cpu cores to use
+#' @param timeout Numeric. The time limit for fitting a model during null
+#'   sampling, in seconds. (workaround for divergent edge cases)
 #' @return A numeric vector containing the estimated Z-scores
 #' @export
 #' @seealso \code{\link{selex_pvals}}
@@ -156,6 +162,8 @@ two_tailed_z_test <- function(z) {
 #' @param estimated_se A numeric vector giving standard errors to use
 #' @param n An integer giving number of coefficient samples to generate
 #' @param cores An integer giving the number of cpu cores to use
+#' @param timeout Numeric. The time limit for fitting a model during null
+#'   sampling, in seconds. (workaround for divergent edge cases)
 #' @export
 #' @return A numeric vector containing the estimated p-values
 selex_pvals <- function(

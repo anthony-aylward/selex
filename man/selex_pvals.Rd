@@ -4,7 +4,8 @@
 \alias{selex_pvals}
 \title{Estimate p-values for SELEX multinomial regression coefficients}
 \usage{
-selex_pvals(fit, estimated_se = NULL, n = 100, cores = detectCores())
+selex_pvals(fit, estimated_se = NULL, n = 100, cores = detectCores(),
+  timeout = 1)
 }
 \arguments{
 \item{fit}{A matrix or data frame with alleles for column names}
@@ -14,6 +15,9 @@ selex_pvals(fit, estimated_se = NULL, n = 100, cores = detectCores())
 \item{n}{An integer giving number of coefficient samples to generate}
 
 \item{cores}{An integer giving the number of cpu cores to use}
+
+\item{timeout}{Numeric. The time limit for fitting a model during null
+sampling, in seconds. (workaround for divergent edge cases)}
 }
 \value{
 A numeric vector containing the estimated p-values

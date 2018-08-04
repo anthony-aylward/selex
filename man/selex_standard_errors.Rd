@@ -5,7 +5,7 @@
 \title{Estimate standard errors for multinomial regression coefficients}
 \usage{
 selex_standard_errors(counts, weights = default_weights, n = 100,
-  cores = detectCores())
+  cores = detectCores(), timeout = 1)
 }
 \arguments{
 \item{counts}{A matrix or data frame with alleles for column names}
@@ -15,6 +15,9 @@ selex_standard_errors(counts, weights = default_weights, n = 100,
 \item{n}{An integer giving number of coefficient samples to generate}
 
 \item{cores}{An integer giving the number of cpu cores to use}
+
+\item{timeout}{Numeric. The time limit for fitting a model during null
+sampling, in seconds. (workaround for divergent edge cases)}
 }
 \value{
 A numeric vector containing the estimated SE's

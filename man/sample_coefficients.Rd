@@ -5,7 +5,7 @@
 \title{Generate a random sample of SELEX multinomial regression coefficients}
 \usage{
 sample_coefficients(counts, weights = default_weights, n = 1,
-  cores = detectCores())
+  cores = detectCores(), timeout = 1)
 }
 \arguments{
 \item{counts}{A matrix or data frame with alleles for column names}
@@ -15,6 +15,9 @@ sample_coefficients(counts, weights = default_weights, n = 1,
 \item{n}{An integer giving number of coefficient samples to generate}
 
 \item{cores}{An integer giving the number of cpu cores to use}
+
+\item{timeout}{Numeric. The time limit for fitting a model during null
+sampling, in seconds. (workaround for divergent edge cases)}
 }
 \value{
 A matrix of coefficients as drawn from the null distribution
