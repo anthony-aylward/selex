@@ -1,6 +1,6 @@
 Package: selex
 Title: Multinomial Logistic Regrestion for SELEX sequencing data
-Version: 1.0.1.0
+Version: 1.0.1.1
 Authors@R: person("Anthony", "Aylward", email = "aaylward@eng.ucsd.edu", role = c("aut", "cre"))
 Description: Multinomial Logistic Regrestion for SELEX sequencing data.
 Depends: R (>= 3.2.2)
