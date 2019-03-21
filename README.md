@@ -1,5 +1,5 @@
 # selex
-Utilities for statistical inference on SELEX sequencing data
+Utilities for statistical inference on SELEX sequencing data (powered by [multinomial regression](https://en.wikipedia.org/wiki/Multinomial_logistic_regression)).
 
 ## Installation and loading
 ```
